@@ -1,9 +1,7 @@
 export const config = {
-
-  signInRedirectURL: "https://localhost:5173/sign-in",
-  signOutRedirectURL: "https://localhost:5173/sign-out",
+  signInRedirectURL: "http://localhost:5173/",
+  signOutRedirectURL: "http://localhost:5173/login",
   clientID: import.meta.env.VITE_CLIENT_ID,
   baseUrl: import.meta.env.VITE_BASE_URL,
-
   scope: ["openid", "profile", "email"],
 };

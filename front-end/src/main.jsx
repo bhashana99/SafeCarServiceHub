@@ -6,7 +6,9 @@ import { config } from "./config.jsx";
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
+  <React.StrictMode>
   <AuthProvider config={ config }>
     <App />
   </AuthProvider>,
+  </React.StrictMode>
 )
