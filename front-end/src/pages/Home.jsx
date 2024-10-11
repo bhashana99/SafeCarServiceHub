@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "@asgardeo/auth-react";
 import { useNavigate } from "react-router-dom";
-import '../index.css';
+
 
 export default function Home() {
   const { state, signOut, getBasicUserInfo } = useAuthContext();
@@ -13,7 +13,7 @@ export default function Home() {
       getBasicUserInfo()
         .then((basicUserDetails) => {
           setBasicUserDetails(basicUserDetails);
-          console.log(basicUserDetails); 
+          console.log(basicUserDetails);
         })
         .catch((error) => {
           console.error("Failed to fetch user info:", error);
@@ -33,30 +33,69 @@ export default function Home() {
   };
 
   return (
-    <div className="body__container">
-      <h1>Vehicle Service Reservation</h1>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-400 p-4">
+      <h1 className="text-3xl font-bold text-black  text-center bg-green-100 p-5" >
+      <span className="text-5xl">Welcome</span>  <br /> to Vehicle Service Reservation
+      </h1>
 
       {state.isAuthenticated && (
-        <div className="details">
+        <div className="bg-white shadow-md rounded-lg p-6 w-full max-w-md">
           {basicUserDetails.success && (
-            <div className="success-message" style={{ color: "green" }}>
+            <div className="text-green-600 mb-4">
               {basicUserDetails.success}
             </div>
           )}
 
-          <div className="details__list">
-            <p><span>Username:</span> {basicUserDetails.username}</p>
-            <p><span>Email:</span> {basicUserDetails.email || "Not available"}</p>
-            <p><span>Mobile:</span> {basicUserDetails.phoneNumber}</p>
-            <p><span>Country:</span> {basicUserDetails.address?.country || "Not available"}</p>
+          <div className="space-y-2 mb-4">
+            <p>
+              <span className="font-semibold">Username:</span>{" "}
+              {basicUserDetails.username}
+            </p>
+            <p>
+              <span className="font-semibold">Name:</span>{" "}
+              {basicUserDetails.displayName}
+            </p>
+            <p>
+              <span className="font-semibold">Email:</span>{" "}
+              {basicUserDetails.email }
+            </p>
+            <p>
+              <span className="font-semibold">Mobile:</span>{" "}
+              {basicUserDetails.phoneNumber}
+            </p>
+            <p>
+              <span className="font-semibold">Country:</span>{" "}
+              {basicUserDetails.address?.country }
+            </p>
           </div>
 
-          <a href="/service-reservation-form">Reserve a service</a> <br />
-          <a href="/reservation-details">My Reservation Details</a> <br />
-          <a href="/delete-upcoming-reservations">Delete upcoming reservations</a> <br />
+          <div className="space-y-2 mb-4">
+            <a
+              href="/create-reservation"
+              className="block w-full py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition"
+            >
+              Reserve a service
+            </a>
+            <a
+              href="/reservation-details"
+              className="block w-full py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition"
+            >
+              My Reservation Details
+            </a>
+            <a
+              href="/delete-reservations"
+              className="block w-full py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition"
+            >
+              Delete upcoming reservations
+            </a>
+          </div>
 
-          <br/><br/>
-          <button onClick={handleLogout}>Logout</button>
+          <button
+            onClick={handleLogout}
+            className="w-full py-2 bg-red-600 text-white rounded hover:bg-red-700 transition"
+          >
+            Logout
+          </button>
         </div>
       )}
     </div>
