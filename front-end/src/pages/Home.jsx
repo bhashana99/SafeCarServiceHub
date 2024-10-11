@@ -13,7 +13,7 @@ export default function Home() {
       getBasicUserInfo()
         .then((basicUserDetails) => {
           setBasicUserDetails(basicUserDetails);
-          console.log(basicUserDetails); // Log to inspect structure
+          console.log(basicUserDetails); 
         })
         .catch((error) => {
           console.error("Failed to fetch user info:", error);
