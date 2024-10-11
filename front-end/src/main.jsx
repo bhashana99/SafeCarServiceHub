@@ -9,6 +9,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
   <AuthProvider config={ config }>
     <App />
-  </AuthProvider>,
+  </AuthProvider>
   </React.StrictMode>
 )
