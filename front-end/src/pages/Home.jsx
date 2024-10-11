@@ -34,7 +34,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-400 p-4">
-      <h1 className="text-3xl font-bold text-black  text-center bg-green-100 p-5" >
+      <h1 className="text-3xl font-bold text-black  text-center  p-5" >
       <span className="text-5xl">Welcome</span>  <br /> to Vehicle Service Reservation
       </h1>
 
