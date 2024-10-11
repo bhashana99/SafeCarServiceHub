@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import '../style/loginPage.css';
+import '../index.css';
 import { useAuthContext } from "@asgardeo/auth-react";
 import { useNavigate } from "react-router-dom";
 

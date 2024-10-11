@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    padding: 1%;
+    font-size: 15px;
+    font-weight: 500;
+    border-radius: 13px;
+    background: #6bb1f1;
+    margin: 10px;
+    display: inline-block;
+}
+
+a:hover {
+    background: #016ABC;
+}
+
+body {
+    background: linear-gradient(120deg, #2b5876, #4e4376);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+    text-align: center;
+}
+
+h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: slideIn 1.2s ease-in-out;
+}
+
+h3 {
+    font-size: 20px;
+    color: #f0f0f0;
+    margin-bottom: 30px;
+    font-weight: 400;
+}
+
+.body__container {
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 50px 40px;
+    border-radius: 20px;
+    width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.details__list {
+    text-align: left;
+    margin-top: 20px;
+    line-height: 1.8; /* Adds vertical space between text lines */
+}
+
+.details__list p {
+    margin-bottom: 15px; /* Adds space between each data element */
+}
+
+.details__list span {
+    font-weight: bold;
+    color: #fff;
+}
+
+.success-message {
+    font-weight: bold;
+    color: green;
+    margin-bottom: 20px;
+}
+
+button,
+#submit__btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #ff7e5f;
+    border: none;
+    border-radius: 30px;
+    color: #fff;
+    transition: all 0.4s ease;
+    width: 100%;
+    box-shadow: 0 6px 15px rgba(255, 126, 95, 0.4);
+}
+
+button:hover,
+#submit__btn:hover {
+    background-color: #feb47b;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(255, 126, 95, 0.6);
+}
+
+#submit__btn:focus {
+    outline: none;
+    box-shadow: 0 4px 12px rgba(255, 126, 95, 0.6);
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

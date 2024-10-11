@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useAuthContext } from "@asgardeo/auth-react";
 import { useNavigate } from "react-router-dom";
-
+import '../index.css';
 
 export default function Home() {
   const { state, signOut, getBasicUserInfo } = useAuthContext();
