@@ -1,7 +1,10 @@
-import React from 'react'
+import React from "react";
 
 export default function DeleteReservations() {
   return (
-    <div>DeleteReservations</div>
-  )
+    <div>
+      {" "}
+      <h1 className="text-3xl font-bold underline">Hello world!</h1>
+    </div>
+  );
 }

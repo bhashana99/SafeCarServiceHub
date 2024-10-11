@@ -1,3 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+
 * {
     margin: 0;
     padding: 0;
@@ -8,7 +15,7 @@
 a {
     text-decoration: none;
     color: #fff;
-    padding: 1%;
+    padding: 3%;
     font-size: 15px;
     font-weight: 500;
     border-radius: 13px;
@@ -64,24 +71,30 @@ h3 {
     border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
-.details__list {
-    text-align: left;
-    margin-top: 20px;
-    line-height: 1.8; /* Adds vertical space between text lines */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.details__list p {
-    margin-bottom: 15px; /* Adds space between each data element */
-}
-
-.details__list span {
+label {
+    margin-bottom: 5px;
     font-weight: bold;
-    color: #fff;
 }
 
-.success-message {
-    font-weight: bold;
-    color: green;
+input[type="date"],
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.error-message {
+    color: red;
     margin-bottom: 20px;
 }
 
@@ -112,7 +125,17 @@ button:hover,
     box-shadow: 0 4px 12px rgba(255, 126, 95, 0.6);
 }
 
-@keyframes fadeIn {
+.body__container__a {
+    display: block;
+    margin-top: 20px;
+}
+
+.body__container__a a {
+    margin: 5px 0;
+}
+
+/* Animation keyframes */
+/* @keyframes fadeIn {
     0% {
         opacity: 0;
         transform: scale(0.8);
@@ -132,4 +155,4 @@ button:hover,
         opacity: 1;
         transform: translateY(0);
     }
-}
+} */
