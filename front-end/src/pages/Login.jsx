@@ -8,6 +8,7 @@ export default function Login() {
     const navigate = useNavigate();
 
     const handleSign = async (event) => {
+
         event.preventDefault();
         try {
             await signIn();
@@ -24,7 +25,7 @@ export default function Login() {
             navigate('/');
             
         }
-    }, [state.isAuthenticated]); 
+    }, [state.isAuthenticated,navigate]); 
 
     return (
         <div className="body__container">
