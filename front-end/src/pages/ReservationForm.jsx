@@ -1,18 +1,41 @@
 import React, { useState, useEffect } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { AiOutlineArrowLeft } from "react-icons/ai"; 
+import { AiOutlineArrowLeft } from "react-icons/ai";
 
-export default function ReservationForm({ }) {
+export default function ReservationForm({}) {
   const navigate = useNavigate();
+
+  const [formData, setFormData] = useState({
+    username: "",
+    date: "",
+    time: "10 AM",
+    location: "",
+    registrationNumber: "",
+    mileage: "",
+    message: "",
+  });
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+   console.log(formData);
+  }
+  
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-400 p-4">
       <div className="flex items-center mb-6">
-        <button onClick={()=> navigate("/")} className="mr-5 p-2 rounded-full bg-green-500 hover:bg-gray-300 transition">
+        <button
+          onClick={() => navigate("/")}
+          className="mr-5 p-2 rounded-full bg-green-500 hover:bg-gray-300 transition"
+        >
           <AiOutlineArrowLeft className="text-gray-700" />
         </button>
         <h1 className="text-2xl font-bold text-gray-800">Book A Service</h1>
       </div>
-      <form className="bg-white shadow-md rounded-lg p-6 w-full max-w-lg space-y-4">
+      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-6 w-full max-w-lg space-y-4">
         <div>
           <label className="block text-gray-700 mb-1" htmlFor="username">
             Username
@@ -20,6 +43,8 @@ export default function ReservationForm({ }) {
           <input
             type="text"
             id="username"
+            value={formData.username}
+            onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
           />
         </div>
@@ -30,6 +55,8 @@ export default function ReservationForm({ }) {
           <input
             type="date"
             id="date"
+            value={formData.date}
+            onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
             required
           />
@@ -41,6 +68,8 @@ export default function ReservationForm({ }) {
           <select
             id="time"
             className="block w-full p-2 border border-gray-300 rounded"
+            value={formData.time}
+            onChange={handleChange}
           >
             <option value="10 AM">10 AM</option>
             <option value="11 AM">11 AM</option>
@@ -53,6 +82,8 @@ export default function ReservationForm({ }) {
           </label>
           <select
             id="location"
+            value={formData.location}
+            onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
             required
           >
@@ -62,7 +93,6 @@ export default function ReservationForm({ }) {
             <option value="Kandy">Kandy</option>
             <option value="Matara">Matara</option>
             <option value="Kurunegala">Kurunegala</option>
-    
           </select>
         </div>
         <div>
@@ -75,8 +105,10 @@ export default function ReservationForm({ }) {
           <input
             type="text"
             id="registrationNumber"
+            onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
             required
+            value={formData.registrationNumber}
           />
         </div>
         <div>
@@ -86,8 +118,10 @@ export default function ReservationForm({ }) {
           <input
             type="number"
             id="mileage"
+            onChange={handleChange}
             className="block w-full p-2 border border-gray-300 rounded"
             required
+            value={formData.mileage}
           />
         </div>
         <div>
@@ -98,6 +132,8 @@ export default function ReservationForm({ }) {
             id="message"
             className="block w-full p-2 border border-gray-300 rounded"
             rows="4"
+            value={formData.message}
+            onChange={handleChange}
           ></textarea>
         </div>
         <button

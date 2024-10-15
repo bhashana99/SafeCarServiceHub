@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { useAuthContext } from "@asgardeo/auth-react";
 import { useNavigate } from "react-router-dom";
 
-
 export default function Home() {
   const { state, signOut, getBasicUserInfo } = useAuthContext();
   const navigate = useNavigate();
@@ -34,8 +33,9 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen bg-gray-400 p-4">
-      <h1 className="text-3xl font-bold text-black  text-center  p-5" >
-      <span className="text-5xl">Welcome</span>  <br /> to Vehicle Service Reservation
+      <h1 className="text-3xl font-bold text-black  text-center  p-5">
+        <span className="text-5xl">Welcome</span> <br /> to Vehicle Service
+        Reservation
       </h1>
 
       {state.isAuthenticated && (
@@ -57,7 +57,7 @@ export default function Home() {
             </p>
             <p>
               <span className="font-semibold">Email:</span>{" "}
-              {basicUserDetails.email }
+              {basicUserDetails.email}
             </p>
             <p>
               <span className="font-semibold">Mobile:</span>{" "}
@@ -65,7 +65,7 @@ export default function Home() {
             </p>
             <p>
               <span className="font-semibold">Country:</span>{" "}
-              {basicUserDetails.address?.country }
+              {basicUserDetails.address?.country}
             </p>
           </div>
 
