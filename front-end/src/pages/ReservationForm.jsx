@@ -5,6 +5,8 @@ import { AiOutlineArrowLeft } from "react-icons/ai";
 export default function ReservationForm({}) {
   const navigate = useNavigate();
   const location = useLocation();
+  
+  const [errors, setErrors] = useState({});
 
   const [formData, setFormData] = useState({
     username: location.state?.username || "",
@@ -16,13 +18,34 @@ export default function ReservationForm({}) {
     message: "",
   });
 
+  const isValidDate = (date) => {
+    const selectedDate = new Date(date);
+    const today = new Date();
+    const dayOfWeek = selectedDate.getDay(); 
+    return selectedDate > today && dayOfWeek !== 0; 
+  };
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.id]: e.target.value });
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-   console.log(formData);
+  //  console.log(formData);
+   const newErrors = {};
+
+   if (!isValidDate(formData.date)) {
+    newErrors.date = "Please select a valid date (after today, excluding Sundays).";
+  }
+
+
+  if (Object.keys(newErrors).length === 0) {
+   
+    console.log(formData);
+    
+  } else {
+    setErrors(newErrors);
+  }
   }
   
   return (
@@ -59,9 +82,10 @@ export default function ReservationForm({}) {
             id="date"
             value={formData.date}
             onChange={handleChange}
-            className="block w-full p-2 border border-gray-300 rounded"
+            className={`block w-full p-2 border ${errors.date ? "border-red-500" : "border-gray-300"} rounded`}
             required
           />
+           {errors.date && <p className="text-red-500 text-sm">{errors.date}</p>}
         </div>
         <div>
           <label className="block text-gray-700 mb-1" htmlFor="time">
