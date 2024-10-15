@@ -71,19 +71,19 @@ export default function Home() {
 
           <div className="space-y-2 mb-4">
             <a
-              href="/create-reservation"
+               onClick={() => navigate("/create-reservation", { state: { username: basicUserDetails.username } })}
               className="block w-full py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition"
             >
               Reserve a service
             </a>
             <a
-              href="/reservation-details"
+              onClick={() => navigate("/reservation-details")}
               className="block w-full py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition"
             >
               My Reservation Details
             </a>
             <a
-              href="/delete-reservations"
+              onClick={() => navigate("/delete-reservations")}
               className="block w-full py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition"
             >
               Delete upcoming reservations

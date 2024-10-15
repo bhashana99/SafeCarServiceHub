@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate,useLocation } from "react-router-dom";
 import { AiOutlineArrowLeft } from "react-icons/ai";
 
 export default function ReservationForm({}) {
   const navigate = useNavigate();
+  const location = useLocation();
 
   const [formData, setFormData] = useState({
-    username: "",
+    username: location.state?.username || "",
     date: "",
     time: "10 AM",
     location: "",
@@ -44,8 +45,9 @@ export default function ReservationForm({}) {
             type="text"
             id="username"
             value={formData.username}
-            onChange={handleChange}
+            
             className="block w-full p-2 border border-gray-300 rounded"
+            readOnly
           />
         </div>
         <div>
