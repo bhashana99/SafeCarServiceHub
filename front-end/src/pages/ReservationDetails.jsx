@@ -1,4 +1,4 @@
-import React, { useEffect , useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function reservationDetails() {
@@ -10,11 +10,11 @@ export default function reservationDetails() {
     const fetchReservation = async () => {
       try {
         const res = await fetch(
-          `http://localhost:8080/api/reservations//get-all-reservations/${username}`
+          `http://localhost:8080/api/reservations/get-all-reservations/${username}`
         );
         const data = await res.json();
         setReservations(data);
-
+console.log(data);
         console.log(reservations);
       } catch (error) {
         console.log(error);
@@ -23,5 +23,7 @@ export default function reservationDetails() {
     fetchReservation();
   }, []);
 
-  return <div>reservation</div>;
+  return (
+    <div>reservation</div>
+  );
 }
