@@ -55,7 +55,7 @@ export default function ReservationForm({}) {
 
   if (Object.keys(newErrors).length === 0) {
    
-    // console.log(formData);
+    console.log(formData);
     try {
       const res = await fetch("http://localhost:8080/api/reservations/create-reservation", {
         method: "POST",

@@ -27,12 +27,12 @@ public class ReservationModel {
     private String location;
 
     @Column(nullable = false)
-    private String vehicleNo;
+    private String registrationNumber;
 
     @Column(nullable = false)
     private Integer mileage;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String message;
 
     @Column(nullable = false)
