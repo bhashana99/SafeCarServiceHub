@@ -77,7 +77,7 @@ export default function Home() {
               Reserve a service
             </a>
             <a
-              onClick={() => navigate("/reservation-details")}
+              onClick={() => navigate("/reservation-details",{ state: { username: basicUserDetails.username } })}
               className="block w-full py-2 bg-blue-600 text-white text-center rounded hover:bg-blue-700 transition"
             >
               My Reservation Details
