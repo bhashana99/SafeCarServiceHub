@@ -38,6 +38,20 @@ export default function ReservationForm({}) {
     newErrors.date = "Please select a valid date (after today, excluding Sundays).";
   }
 
+  if (!formData.location) {
+    newErrors.location = "Please select a location.";
+  }
+
+  
+  if (!formData.registrationNumber) {
+    newErrors.registrationNumber = "Please enter your vehicle registration number.";
+  }
+
+ 
+  if (!formData.mileage || formData.mileage <= 0) {
+    newErrors.mileage = "Please enter a valid mileage.";
+  }
+
 
   if (Object.keys(newErrors).length === 0) {
    
@@ -110,7 +124,7 @@ export default function ReservationForm({}) {
             id="location"
             value={formData.location}
             onChange={handleChange}
-            className="block w-full p-2 border border-gray-300 rounded"
+            className={`block w-full p-2 border ${errors.location ? "border-red-500" : "border-gray-300"} rounded`}
             required
           >
             <option value="">Select a district</option>
@@ -120,6 +134,7 @@ export default function ReservationForm({}) {
             <option value="Matara">Matara</option>
             <option value="Kurunegala">Kurunegala</option>
           </select>
+          {errors.location && <p className="text-red-500 text-sm">{errors.location}</p>}
         </div>
         <div>
           <label
