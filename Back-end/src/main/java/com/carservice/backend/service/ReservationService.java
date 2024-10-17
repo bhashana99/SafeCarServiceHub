@@ -5,6 +5,8 @@ import com.carservice.backend.repository.ReservationRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ReservationService {
     @Autowired
@@ -12,6 +14,10 @@ public class ReservationService {
 
     public ReservationModel createReservation(ReservationModel reservationModel){
         return reservationRepo.save(reservationModel);
+    }
+
+    public List<ReservationModel> getUserReservations(String username){
+        return  reservationRepo.findByUsername(username);
     }
 
 
