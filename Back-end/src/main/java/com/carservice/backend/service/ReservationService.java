@@ -20,5 +20,9 @@ public class ReservationService {
         return  reservationRepo.findByUsername(username);
     }
 
+    public void deleteReservation(Long id){
+        reservationRepo.deleteById(id);
+    }
+
 
 }

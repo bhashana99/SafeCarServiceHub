@@ -28,6 +28,10 @@ public class ReservationController {
         return  reservationService.getUserReservations(username);
     }
 
+    @DeleteMapping("/delete-reservation/{id}")
+    public void deleteReservation(@PathVariable Long id){
+        reservationService.deleteReservation(id);
+    }
 
 
 
