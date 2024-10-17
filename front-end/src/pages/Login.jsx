@@ -22,15 +22,15 @@ export default function Login() {
     }, [state.isAuthenticated, navigate]); 
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-gray-600">
-            <div className="bg-white p-8 rounded-lg shadow-md w-96">
-                <h1 className="text-3xl font-bold text-center mb-4 text-gray-800">Vehicle Service Reservation</h1>
+        <div className="flex items-center justify-center min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 p-4">
+            <div className="bg-white rounded-lg shadow-lg p-8 w-full max-w-sm">
+                <h1 className="text-3xl font-bold text-center text-gray-800 mb-4">Vehicle Service Reservation</h1>
                 <h3 className="text-gray-600 text-center mb-6">Please Log in to continue...</h3>
                 <form onSubmit={handleSign} className="space-y-4">
                     <div className="flex flex-col">
                         <button 
                             type="submit"
-                            className="w-full py-2 bg-blue-600 text-white rounded hover:bg-blue-700 transition"
+                            className="w-full py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition duration-200 ease-in-out"
                         >
                             Login
                         </button>
