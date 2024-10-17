@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import ReservationForm from "./pages/reservationForm";
 import ReservationDetails from "./pages/reservationDetails";
-import DeleteReservations from "./pages/DeleteReservations";
+
 
 export default function App() {
   return (
@@ -14,7 +14,7 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/create-reservation" element={<ReservationForm />} />
         <Route path="/reservation-details" element={<ReservationDetails />} />
-        <Route path="/delete-reservations" element={<DeleteReservations />} />
+ 
          
       </Routes>
     </BrowserRouter>
