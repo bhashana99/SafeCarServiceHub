@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface ReservationRepo extends JpaRepository<ReservationModel,Long> {
  List<ReservationModel> findByUsername(String username);
- 
+
 }
