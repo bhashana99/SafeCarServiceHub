@@ -1,34 +1,42 @@
 # Vehicle Service Reservation Web Application
 
-This is a web application for users to reserve vehicle service appointments and view their reservations. The application features secure user authentication using OpenID Connect (OIDC) and ensures protection against common web vulnerabilities such as those listed in the OWASP Top 10.
+## About
+
+The Vehicle Service Reservation Web Application is designed to streamline the process of managing vehicle service appointments. It features user authentication via **Asgardeo OIDC** (OpenID Connect) and employs robust security practices to mitigate common vulnerabilities as per OWASP Top 10. The web application allows users to create, view, and manage their service reservations.
 
 ## Features
 
-- **User Authentication:** The application uses OIDC for secure user login and logout.
-- **Reservation Form:** Users can create vehicle service reservations by filling out a form.
-- **Reservation Management:** Users can view their upcoming and past reservations, with the ability to cancel only future reservations.
-- **Responsive Design:** The application is styled with Tailwind CSS for a modern and responsive user interface.
+- User login and authentication using **Asgardeo OIDC**.
+- Create, view, and delete vehicle service reservations.
+- Secure backend with Spring Boot and MySQL.
+- Responsive UI using React and Tailwind CSS.
+- Protected routes to ensure only authenticated users can access key features.
 
 ## Technologies Used
 
-### Front-End
-- **React**: JavaScript library for building user interfaces.
-- **Vite**: Development server and build tool for fast development.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-  
-### Back-End
-- **Spring Boot**: Java-based framework for building the back-end API.
-- **Java 17**: The version of Java used for the back-end implementation.
-  
-### Authentication & Security
-- **OIDC (OpenID Connect)**: For secure authentication and access control.
-- **OWASP Top 10 Mitigation**: The application is designed with security in mind, addressing common web vulnerabilities.
+- **Frontend**: React (Vite), Tailwind CSS
+- **Backend**: Spring Boot
+- **Database**: MySQL
+- **Authentication**: **Asgardeo OIDC (OpenID Connect)**
 
-## Prerequisites
+## Frontend Setup
 
-To run this project locally, you need to have the following installed:
+The frontend of the application is built using React with Vite. To run the frontend, ensure you have the necessary environment variables set up in a `.env` file in the root of the frontend project.
 
-- **Node.js**: Required for running the front-end part of the application.
-- **Java 17**: Required for running the Spring Boot back-end API.
-- **Asgardeo SDK**: Used for OIDC authentication in the React application.
-  
+### Environment Variables
+
+Create a `.env` file in the root of the frontend directory with the following variables:
+
+```env
+VITE_CLIENT_ID=your_asgardeo_client_id_here
+VITE_BASE_URL=https://api.asgardeo.io/t/{your_tenant_name_here}
+```
+
+## Backend Setup
+
+Create a .env file in the root of the backend directory with the following variables
+
+```env
+db_username=your_database_username
+db_password=your_database_password
+```
