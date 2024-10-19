@@ -3,8 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login";
 import Home from "./pages/Home";
 import ReservationForm from "./pages/reservationForm";
-import ReservationDetails from "./pages/reservationDetails";
-
+import ReservationDetails from "./pages/ReservationDetails";
 
 export default function App() {
   return (
@@ -14,8 +13,6 @@ export default function App() {
         <Route path="/" element={<Home />} />
         <Route path="/create-reservation" element={<ReservationForm />} />
         <Route path="/reservation-details" element={<ReservationDetails />} />
- 
-         
       </Routes>
     </BrowserRouter>
   );
