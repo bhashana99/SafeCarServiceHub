@@ -4,7 +4,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import ReservationForm from "./pages/reservationForm";
 import ReservationDetails from "./pages/ReservationDetails";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 
 export default function App() {
   return (
