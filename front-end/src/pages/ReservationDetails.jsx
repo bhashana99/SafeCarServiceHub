@@ -23,6 +23,20 @@ export default function ReservationDetails() {
     fetchReservation();
   }, [location.state?.username]);
 
+  const handleDelete = async (id) => {
+    const confirmDelete = window.confirm("Are you sure you want to delete this reservation?");
+    if (confirmDelete) {
+      try {
+        await fetch(`http://localhost:8080/api/reservations/delete-reservation/${id}`, {
+          method: "DELETE",
+        });
+        setReservations(reservations.filter((reservation) => reservation.id !== id));
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-r from-blue-500 to-purple-600 p-8">
       <div className="max-w-7xl mx-auto bg-white rounded-lg shadow-lg p-6">
@@ -82,7 +96,9 @@ export default function ReservationDetails() {
                     {reservation.message ? reservation.message : "N/A"}
                   </td>
                   <td className="px-4 py-2 border border-gray-300">
-                    <button className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 focus:outline-none">
+                    <button className="px-4 py-2 bg-red-500 text-white rounded hover:bg-red-700 focus:outline-none"
+                    onClick={() => handleDelete(reservation.id)}
+                    >
                       Delete
                     </button>
                   </td>
